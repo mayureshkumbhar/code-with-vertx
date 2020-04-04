@@ -1,0 +1,73 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.mk.example</groupId>
+	<artifactId>code-with-vertx</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>code-with-vertx</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<surefire.plugin.version>2.22.1</surefire.plugin.version>
+		<vertx.version>3.9.0</vertx.version>
+		<vertx.maven.plugin.version>1.0.13</vertx.maven.plugin.version>
+		<vertx.verticle>org.mk.example.vertx.MyFirstVerticle</vertx.verticle>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>io.vertx</groupId>
+			<artifactId>vertx-web</artifactId>
+			<version>${vertx.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.vertx</groupId>
+			<artifactId>vertx-unit</artifactId>
+			<version>${vertx.version}</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven.compiler.plugin.version}</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${surefire.plugin.version}</version>
+			</plugin>
+			<plugin>
+				<groupId>io.fabric8</groupId>
+				<artifactId>vertx-maven-plugin</artifactId>
+				<version>${vertx.maven.plugin.version}</version>
+				<executions>
+					<execution>
+						<id>vertx-maven-plugin</id>
+						<goals>
+							<goal>initialize</goal>
+							<goal>package</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<redeploy>true</redeploy>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
