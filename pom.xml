@@ -17,7 +17,7 @@
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<surefire.plugin.version>2.22.1</surefire.plugin.version>
-		<vertx.version>3.9.0</vertx.version>
+		<vertx.version>3.9.4</vertx.version>
 		<vertx.maven.plugin.version>1.0.13</vertx.maven.plugin.version>
 		<vertx.verticle>org.mk.example.vertx.MyFirstVerticle</vertx.verticle>
 	</properties>
